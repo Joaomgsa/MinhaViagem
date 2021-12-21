@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MinhaViagem_V1.Models.Destino>
+
+@{
+    ViewData["Title"] = "Administração de Destinos";
+}
+
+<h1>Destinos</h1>
+
+<p>
+    <a asp-action="Create">Criar novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeDestino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CidadeDestino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorPassagem)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeDestino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CidadeDestino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorPassagem)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DestinoID">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.DestinoID">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.DestinoID">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

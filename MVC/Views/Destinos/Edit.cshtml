@@ -1,0 +1,43 @@
+﻿@model MinhaViagem_V1.Models.Destino
+
+@{
+    ViewData["Title"] = "Administração de Destinos - Editar Destino";
+}
+
+
+<h4>Editar Destino</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DestinoID" />
+            <div class="form-group">
+                <label asp-for="NomeDestino" class="control-label"></label>
+                <input asp-for="NomeDestino" class="form-control" />
+                <span asp-validation-for="NomeDestino" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CidadeDestino" class="control-label"></label>
+                <input asp-for="CidadeDestino" class="form-control" />
+                <span asp-validation-for="CidadeDestino" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorPassagem" class="control-label"></label>
+                <input asp-for="ValorPassagem" class="form-control" />
+                <span asp-validation-for="ValorPassagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MinhaViagem_V1.Models.Passagem>
+
+@{
+    ViewData["Title"] = "Administração de Passagens";
+}
+
+<h1>Comprar Nova Passagem</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DataViagem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destino)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataViagem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destino.DestinoID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PassagemID">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.PassagemID">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.PassagemID">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

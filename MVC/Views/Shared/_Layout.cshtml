@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Minha Viagem</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <div class="container-fluid">
+                <img src="~/ico/send.png" asp-append-version="true" alt="logo" width="30" height="30" class="d-inline-block aligns-text-top" />
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MinhaViagem</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">                        
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="Index">Home</a>                     
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Destinos" asp-action="Index">Destinos</a>          
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Passagens" asp-action="Index">Comprar Passagem</a>        
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="py-5">
+                <div class="row">
+                    <div class="col-2">
+                        <h5 class="text-primary">Clientes</h5>
+                    </div>
+                    <div class="col-2">
+                        <h5 class="text-primary">Destino</h5>
+                    </div>
+                    <div class="col-2">
+                        <h5 class="text-primary">Passagens</h5>
+                    </div>
+                    <div class="col-4 ofset-1">
+                        <form>
+                            <h5>Receba as nossas promoções</h5>
+                            <p class="text-primary">Toda semana as melhores ofertas para você</p>
+                            <div class="d-flex w-100 gap-2">
+                                <label for="newsletter1" class="invisible">Email</label>
+                                <input id="newsletter1" type="text" class="form-control" placeholder="seu email">
+                                <button class="btn btn-primary" type="button">Receber</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
